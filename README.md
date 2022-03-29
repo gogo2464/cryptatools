@@ -30,7 +30,7 @@ Run:
 Run:
 
   ```sh
-  sudo apt install virtualenv pip -y
+  sudo apt install virtualenv pip git -y
   virtualenv -p python3 venv3
   source venv3/bin/activate
   
@@ -94,6 +94,10 @@ make -C .\docs\ html
 ```
 
 This project uses Sphinx.
+
+The documentation is auto-generated at each pull request.
+
+To see the cryptatools documentation. See: [the API documentation](https://gogo2464.github.io/cryptatools/build/html/api.html)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
