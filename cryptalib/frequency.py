@@ -1,5 +1,4 @@
 import nltk
-import re
 from cryptalib.alphabets import charsets
 
 
