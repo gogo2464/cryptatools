@@ -2,7 +2,8 @@ import doctest
 import unittest
 
 modules = ("cryptanalib.cryptanalysis_algorithm.frequency",
-           "cryptanalib.encoding.charsets")
+           "cryptanalib.cryptanalysis_algorithm.brute_forcing.plain_text_detector",
+           "cryptanalib.encoding.format",)
 
 suite = unittest.TestSuite()
 for mod in modules:

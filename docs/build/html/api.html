@@ -111,6 +111,35 @@
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="cryptanalib.cryptanalysis_algorithm.brute_forcing.plain_text_detector.PlainTextDetector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cryptanalib.cryptanalysis_algorithm.brute_forcing.plain_text_detector.</span></span><span class="sig-name descname"><span class="pre">PlainTextDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">language</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.cryptanalysis_algorithm.brute_forcing.plain_text_detector.PlainTextDetector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="cryptanalib.cryptanalysis_algorithm.brute_forcing.plain_text_detector.PlainTextDetector.detect_plain_text">
+<span class="sig-name descname"><span class="pre">detect_plain_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plain_or_cipher_text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">similarity_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.cryptanalysis_algorithm.brute_forcing.plain_text_detector.PlainTextDetector.detect_plain_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the parameter plain_or_cipher_text is plain text and return True if the code is plain text. Return False if the text is still encrypted. The text will be considered as plain by default if more than 50% or the words are presents in a dictionnary of the language selected by the parameter language. In order to change the default level value, change the parameter similarity_level</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plain_or_cipher_text</strong> – list of string</p></li>
+<li><p><strong>similarity_level</strong> – float</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cryptanalib.cryptanalysis_algorithm.brute_forcing</span> <span class="kn">import</span> <span class="n">plain_text_detector</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ptd</span> <span class="o">=</span> <span class="n">PlainTextDetector</span><span class="p">(</span><span class="s2">&quot;any&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ptd</span><span class="o">.</span><span class="n">detect_plain_text</span><span class="p">([</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">])</span>
+<span class="go">1.0 level of similarity with the common words: [&#39;Hello&#39;, &#39;.&#39;, &#39;How&#39;, &#39;are&#39;, &#39;you&#39;, &#39;?&#39;, &#39;I&#39;, &#39;am&#39;, &#39;fine&#39;, &#39;and&#39;, &#39;you&#39;, &#39;?&#39;].</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
