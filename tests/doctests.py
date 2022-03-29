@@ -1,8 +1,9 @@
 import doctest
 import unittest
 
-modules = ("cryptalib.frequency",
-           "cryptalib.alphabets")
+modules = ("cryptanalib.cryptanalysis_algorithm.frequency",
+           "cryptanalib.encoding.charsets")
+
 suite = unittest.TestSuite()
 for mod in modules:
     suite.addTest(doctest.DocTestSuite(mod))

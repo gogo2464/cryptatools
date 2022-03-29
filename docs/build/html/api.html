@@ -42,12 +42,12 @@
 <tbody>
 </tbody>
 </table>
-<span class="target" id="module-cryptalib"></span><dl class="py class">
-<dt class="sig sig-object py" id="cryptalib.frequency.FrequencyAnalysis">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cryptalib.frequency.</span></span><span class="sig-name descname"><span class="pre">FrequencyAnalysis</span></span><a class="headerlink" href="#cryptalib.frequency.FrequencyAnalysis" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="module-cryptanalib"></span><dl class="py class">
+<dt class="sig sig-object py" id="cryptanalib.cryptanalysis_algorithm.frequency.FrequencyAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cryptanalib.cryptanalysis_algorithm.frequency.</span></span><span class="sig-name descname"><span class="pre">FrequencyAnalysis</span></span><a class="headerlink" href="#cryptanalib.cryptanalysis_algorithm.frequency.FrequencyAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
-<dt class="sig sig-object py" id="cryptalib.frequency.FrequencyAnalysis.set_letters_frequency_from_nltk_corpus">
-<span class="sig-name descname"><span class="pre">set_letters_frequency_from_nltk_corpus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">corpus_names</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptalib.frequency.FrequencyAnalysis.set_letters_frequency_from_nltk_corpus" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cryptanalib.cryptanalysis_algorithm.frequency.FrequencyAnalysis.set_letters_frequency_from_nltk_corpus">
+<span class="sig-name descname"><span class="pre">set_letters_frequency_from_nltk_corpus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">corpus_names</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.cryptanalysis_algorithm.frequency.FrequencyAnalysis.set_letters_frequency_from_nltk_corpus" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download one or more corpus from nltk database to set average of caracter repetition (sequential analysis) of each corpus downloaded.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -57,8 +57,7 @@
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cryptalib.alphabets</span> <span class="kn">import</span> <span class="n">charsets</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fa</span> <span class="o">=</span> <span class="n">FrequencyAnalysis</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fa</span> <span class="o">=</span> <span class="n">FrequencyAnalysis</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fa</span><span class="o">.</span><span class="n">set_letters_frequency_from_nltk_corpus</span><span class="p">([</span><span class="s1">&#39;gutenberg&#39;</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">])</span>
 <span class="go">loading file austen-emma.txt from corpus gutenberg</span>
 <span class="go">loading file austen-persuasion.txt from corpus gutenberg</span>
@@ -92,8 +91,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="cryptalib.frequency.FrequencyAnalysis.measure_frequency_from_target">
-<span class="sig-name descname"><span class="pre">measure_frequency_from_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptalib.frequency.FrequencyAnalysis.measure_frequency_from_target" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cryptanalib.cryptanalysis_algorithm.frequency.FrequencyAnalysis.measure_frequency_from_target">
+<span class="sig-name descname"><span class="pre">measure_frequency_from_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.cryptanalysis_algorithm.frequency.FrequencyAnalysis.measure_frequency_from_target" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return frequency of caracters supplied in the target monoalphabetic caracter cipher code in argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

@@ -1,7 +1,7 @@
 Get frequency analysis database from nltk corpus database:
 
 ```python
-from cryptalib.frequency import *
+from cryptanalib.cryptanalysis_algorithm.frequency import *
 
 if __name__ == "__main__":
     fa = FrequencyAnalysis()

@@ -1,5 +1,5 @@
 import nltk
-from cryptalib.alphabets import charsets
+from cryptanalib.encoding.charsets import alphabets
 
 
 class FrequencyAnalysis:
@@ -14,7 +14,6 @@ class FrequencyAnalysis:
         :param corpus_names: list of strings
         :return: None
 
-        >>> from cryptalib.alphabets import charsets
         >>> fa = FrequencyAnalysis()
         >>> fa.set_letters_frequency_from_nltk_corpus(['gutenberg', 'brown'])
         loading file austen-emma.txt from corpus gutenberg
@@ -56,7 +55,7 @@ class FrequencyAnalysis:
                 caracters_size_in_corpus = len(new_corpus.raw(fileids=fileid))
 
                 alphabet_frequency = dict([(match, len([word for word in new_corpus.raw(fileid)
-                                      if match in word]) / caracters_size_in_corpus) for match in charsets['latin_alphabet']])
+                                      if match in word]) / caracters_size_in_corpus) for match in alphabets['latin_alphabet']])
 
                 frequency_of_each_corpus_sum.append(alphabet_frequency)
                 self.corpus_caracters_frequency[fileid] = alphabet_frequency
@@ -83,6 +82,6 @@ class FrequencyAnalysis:
 
         alphabet_frequency = dict([(match, len([word for word in target_code
             if match in word]) / target_size) for match in
-        charsets['latin_alphabet']])
+                                   alphabets['latin_alphabet']])
 
         return alphabet_frequency

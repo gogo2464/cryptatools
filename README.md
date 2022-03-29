@@ -50,7 +50,7 @@ Run:
 You can download corpus from nltk corpus database to make frequential analysis.
 
 ```python
-from cryptalib.frequency import *
+from cryptanalib.cryptanalysis_algorithm.frequency import *
 
 if __name__ == "__main__":
     fa = FrequencyAnalysis()

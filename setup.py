@@ -6,6 +6,6 @@ setup(
    description='A ctf tool like pwntools but for cryptanalysis instead of pwn.',
    author='gogo',
    author_email='gogo246475@gmail.com',
-   packages=['cryptalib', 'crypta'],
+   packages=['cryptanalib', 'crypta'],
    install_requires=['nltk', 'nose'],
 )

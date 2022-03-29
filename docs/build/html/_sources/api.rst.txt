@@ -4,9 +4,9 @@ API
 .. autosummary::
     :toctree: generated
 
-.. automodule:: cryptalib
+.. automodule:: cryptanalib
 
-.. autoclass:: cryptalib.frequency::FrequencyAnalysis
+.. autoclass:: cryptanalib.cryptanalysis_algorithm.frequency::FrequencyAnalysis
 
     .. automethod:: set_letters_frequency_from_nltk_corpus(corpus_names)
 
