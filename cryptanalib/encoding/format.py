@@ -43,7 +43,7 @@ def encode_uu_charset(text):
 
     return plain_text
 
-formats = dict(
+encoding = dict(
     ascii_charset = {number: hex(ord(number)) for number in string.printable},
     uu_charset = lambda a: encode_uu_charset(a)
 )
@@ -53,9 +53,9 @@ Encode text to a specific encoding.
 :param ascii_charset: encode single char to ascii hexadecimal
 :param uu_charset: encode text to uu encoding
 
->>> from cryptanalib.encoding.format import formats, encode_uu_charset
->>> formats["ascii_charset"]["A"]
+>>> from cryptanalib.encoding.format import encoding, encode_uu_charset
+>>> encoding["ascii_charset"]["A"]
     0x41
->>> formats["uu_charset"]("ABCDAZERTY") == encode_uu_charset("ABCDAZERTY")
+>>> encoding["uu_charset"]("ABCDAZERTY") == encode_uu_charset("ABCDAZERTY")
     True
 """
