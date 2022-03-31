@@ -15,6 +15,7 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Usage" href="usage.html" />
     <link rel="prev" title="Welcome to cryptanalib’s documentation!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -140,30 +141,66 @@
 
 </dd></dl>
 
-<span class="target" id="module-cryptanalib.encoding"></span><dl class="py data">
-<dt class="sig sig-object py" id="cryptanalib.encoding.format.encoding">
-<span class="sig-prename descclassname"><span class="pre">cryptanalib.encoding.format.</span></span><span class="sig-name descname"><span class="pre">encoding</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'ascii_charset':</span> <span class="pre">{'\t':</span> <span class="pre">'0x9',</span> <span class="pre">'\n':</span> <span class="pre">'0xa',</span> <span class="pre">'\x0b':</span> <span class="pre">'0xb',</span> <span class="pre">'\x0c':</span> <span class="pre">'0xc',</span> <span class="pre">'\r':</span> <span class="pre">'0xd',</span> <span class="pre">'</span> <span class="pre">':</span> <span class="pre">'0x20',</span> <span class="pre">'!':</span> <span class="pre">'0x21',</span> <span class="pre">'&quot;':</span> <span class="pre">'0x22',</span> <span class="pre">'#':</span> <span class="pre">'0x23',</span> <span class="pre">'$':</span> <span class="pre">'0x24',</span> <span class="pre">'%':</span> <span class="pre">'0x25',</span> <span class="pre">'&amp;':</span> <span class="pre">'0x26',</span> <span class="pre">&quot;'&quot;:</span> <span class="pre">'0x27',</span> <span class="pre">'(':</span> <span class="pre">'0x28',</span> <span class="pre">')':</span> <span class="pre">'0x29',</span> <span class="pre">'*':</span> <span class="pre">'0x2a',</span> <span class="pre">'+':</span> <span class="pre">'0x2b',</span> <span class="pre">',':</span> <span class="pre">'0x2c',</span> <span class="pre">'-':</span> <span class="pre">'0x2d',</span> <span class="pre">'.':</span> <span class="pre">'0x2e',</span> <span class="pre">'/':</span> <span class="pre">'0x2f',</span> <span class="pre">'0':</span> <span class="pre">'0x30',</span> <span class="pre">'1':</span> <span class="pre">'0x31',</span> <span class="pre">'2':</span> <span class="pre">'0x32',</span> <span class="pre">'3':</span> <span class="pre">'0x33',</span> <span class="pre">'4':</span> <span class="pre">'0x34',</span> <span class="pre">'5':</span> <span class="pre">'0x35',</span> <span class="pre">'6':</span> <span class="pre">'0x36',</span> <span class="pre">'7':</span> <span class="pre">'0x37',</span> <span class="pre">'8':</span> <span class="pre">'0x38',</span> <span class="pre">'9':</span> <span class="pre">'0x39',</span> <span class="pre">':':</span> <span class="pre">'0x3a',</span> <span class="pre">';':</span> <span class="pre">'0x3b',</span> <span class="pre">'&lt;':</span> <span class="pre">'0x3c',</span> <span class="pre">'=':</span> <span class="pre">'0x3d',</span> <span class="pre">'&gt;':</span> <span class="pre">'0x3e',</span> <span class="pre">'?':</span> <span class="pre">'0x3f',</span> <span class="pre">'&#64;':</span> <span class="pre">'0x40',</span> <span class="pre">'A':</span> <span class="pre">'0x41',</span> <span class="pre">'B':</span> <span class="pre">'0x42',</span> <span class="pre">'C':</span> <span class="pre">'0x43',</span> <span class="pre">'D':</span> <span class="pre">'0x44',</span> <span class="pre">'E':</span> <span class="pre">'0x45',</span> <span class="pre">'F':</span> <span class="pre">'0x46',</span> <span class="pre">'G':</span> <span class="pre">'0x47',</span> <span class="pre">'H':</span> <span class="pre">'0x48',</span> <span class="pre">'I':</span> <span class="pre">'0x49',</span> <span class="pre">'J':</span> <span class="pre">'0x4a',</span> <span class="pre">'K':</span> <span class="pre">'0x4b',</span> <span class="pre">'L':</span> <span class="pre">'0x4c',</span> <span class="pre">'M':</span> <span class="pre">'0x4d',</span> <span class="pre">'N':</span> <span class="pre">'0x4e',</span> <span class="pre">'O':</span> <span class="pre">'0x4f',</span> <span class="pre">'P':</span> <span class="pre">'0x50',</span> <span class="pre">'Q':</span> <span class="pre">'0x51',</span> <span class="pre">'R':</span> <span class="pre">'0x52',</span> <span class="pre">'S':</span> <span class="pre">'0x53',</span> <span class="pre">'T':</span> <span class="pre">'0x54',</span> <span class="pre">'U':</span> <span class="pre">'0x55',</span> <span class="pre">'V':</span> <span class="pre">'0x56',</span> <span class="pre">'W':</span> <span class="pre">'0x57',</span> <span class="pre">'X':</span> <span class="pre">'0x58',</span> <span class="pre">'Y':</span> <span class="pre">'0x59',</span> <span class="pre">'Z':</span> <span class="pre">'0x5a',</span> <span class="pre">'[':</span> <span class="pre">'0x5b',</span> <span class="pre">'\\':</span> <span class="pre">'0x5c',</span> <span class="pre">']':</span> <span class="pre">'0x5d',</span> <span class="pre">'^':</span> <span class="pre">'0x5e',</span> <span class="pre">'_':</span> <span class="pre">'0x5f',</span> <span class="pre">'`':</span> <span class="pre">'0x60',</span> <span class="pre">'a':</span> <span class="pre">'0x61',</span> <span class="pre">'b':</span> <span class="pre">'0x62',</span> <span class="pre">'c':</span> <span class="pre">'0x63',</span> <span class="pre">'d':</span> <span class="pre">'0x64',</span> <span class="pre">'e':</span> <span class="pre">'0x65',</span> <span class="pre">'f':</span> <span class="pre">'0x66',</span> <span class="pre">'g':</span> <span class="pre">'0x67',</span> <span class="pre">'h':</span> <span class="pre">'0x68',</span> <span class="pre">'i':</span> <span class="pre">'0x69',</span> <span class="pre">'j':</span> <span class="pre">'0x6a',</span> <span class="pre">'k':</span> <span class="pre">'0x6b',</span> <span class="pre">'l':</span> <span class="pre">'0x6c',</span> <span class="pre">'m':</span> <span class="pre">'0x6d',</span> <span class="pre">'n':</span> <span class="pre">'0x6e',</span> <span class="pre">'o':</span> <span class="pre">'0x6f',</span> <span class="pre">'p':</span> <span class="pre">'0x70',</span> <span class="pre">'q':</span> <span class="pre">'0x71',</span> <span class="pre">'r':</span> <span class="pre">'0x72',</span> <span class="pre">'s':</span> <span class="pre">'0x73',</span> <span class="pre">'t':</span> <span class="pre">'0x74',</span> <span class="pre">'u':</span> <span class="pre">'0x75',</span> <span class="pre">'v':</span> <span class="pre">'0x76',</span> <span class="pre">'w':</span> <span class="pre">'0x77',</span> <span class="pre">'x':</span> <span class="pre">'0x78',</span> <span class="pre">'y':</span> <span class="pre">'0x79',</span> <span class="pre">'z':</span> <span class="pre">'0x7a',</span> <span class="pre">'{':</span> <span class="pre">'0x7b',</span> <span class="pre">'|':</span> <span class="pre">'0x7c',</span> <span class="pre">'}':</span> <span class="pre">'0x7d',</span> <span class="pre">'~':</span> <span class="pre">'0x7e'},</span> <span class="pre">'uu_charset':</span> <span class="pre">&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;}</span></em><a class="headerlink" href="#cryptanalib.encoding.format.encoding" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encode text to specific encoding.</p>
+<span class="target" id="module-cryptanalib.encoding"></span><dl class="py class">
+<dt class="sig sig-object py" id="cryptanalib.encoding.format.Format">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cryptanalib.encoding.format.</span></span><span class="sig-name descname"><span class="pre">Format</span></span><a class="headerlink" href="#cryptanalib.encoding.format.Format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instanciate this class to handle or process a specific format.</p>
+<blockquote>
+<div><dl class="py method">
+<dt class="sig sig-object py" id="cryptanalib.encoding.format.Format.encode_uu_charset">
+<span class="sig-name descname"><span class="pre">encode_uu_charset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cipher_text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.encoding.format.Format.encode_uu_charset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode the cipher text string to a plain text ascii string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ascii_charset</strong> – encode single char to ascii hexadecimal</p></li>
-<li><p><strong>uu_charset</strong> – encode text to uu encoding</p></li>
-</ul>
+<dd class="field-odd"><p><strong>cipher_text</strong> – String</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>string</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cryptanalib.encoding.format</span> <span class="kn">import</span> <span class="n">decoding</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">encode_uu_charset</span><span class="p">,</span> <span class="n">decode_uu_charset</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">encoding</span><span class="p">[</span><span class="s2">&quot;ascii_charset&quot;</span><span class="p">][</span><span class="s2">&quot;A&quot;</span><span class="p">]</span>
-<span class="go">    0x41</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">encoding</span><span class="p">[</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">](</span><span class="s2">&quot;ABCDAZERTY&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">encode_uu_charset</span><span class="p">(</span><span class="s2">&quot;ABCDAZERTY&quot;</span><span class="p">)</span>
-<span class="go">    True</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cryptanalib.encoding.format</span> <span class="kn">import</span> <span class="n">Format</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span> <span class="o">=</span> <span class="n">Format</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="o">.</span><span class="n">encoding</span><span class="p">[</span><span class="s2">&quot;ascii_charset&quot;</span><span class="p">][</span><span class="s2">&quot;A&quot;</span><span class="p">]</span>
+<span class="go">&#39;0x41&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="o">.</span><span class="n">encoding</span><span class="p">[</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">](</span><span class="s2">&quot;ABCDAZERTY&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">format</span><span class="o">.</span><span class="n">encode_uu_charset</span><span class="p">(</span><span class="s2">&quot;ABCDAZERTY&quot;</span><span class="p">)</span>
+<span class="go">True</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="py data">
-<dt class="sig sig-object py" id="cryptanalib.encoding.format.decoding">
-<span class="sig-prename descclassname"><span class="pre">cryptanalib.encoding.format.</span></span><span class="sig-name descname"><span class="pre">decoding</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'ascii_charset':</span> <span class="pre">{'0x20':</span> <span class="pre">'</span> <span class="pre">',</span> <span class="pre">'0x21':</span> <span class="pre">'!',</span> <span class="pre">'0x22':</span> <span class="pre">'&quot;',</span> <span class="pre">'0x23':</span> <span class="pre">'#',</span> <span class="pre">'0x24':</span> <span class="pre">'$',</span> <span class="pre">'0x25':</span> <span class="pre">'%',</span> <span class="pre">'0x26':</span> <span class="pre">'&amp;',</span> <span class="pre">'0x27':</span> <span class="pre">&quot;'&quot;,</span> <span class="pre">'0x28':</span> <span class="pre">'(',</span> <span class="pre">'0x29':</span> <span class="pre">')',</span> <span class="pre">'0x2a':</span> <span class="pre">'*',</span> <span class="pre">'0x2b':</span> <span class="pre">'+',</span> <span class="pre">'0x2c':</span> <span class="pre">',',</span> <span class="pre">'0x2d':</span> <span class="pre">'-',</span> <span class="pre">'0x2e':</span> <span class="pre">'.',</span> <span class="pre">'0x2f':</span> <span class="pre">'/',</span> <span class="pre">'0x30':</span> <span class="pre">'0',</span> <span class="pre">'0x31':</span> <span class="pre">'1',</span> <span class="pre">'0x32':</span> <span class="pre">'2',</span> <span class="pre">'0x33':</span> <span class="pre">'3',</span> <span class="pre">'0x34':</span> <span class="pre">'4',</span> <span class="pre">'0x35':</span> <span class="pre">'5',</span> <span class="pre">'0x36':</span> <span class="pre">'6',</span> <span class="pre">'0x37':</span> <span class="pre">'7',</span> <span class="pre">'0x38':</span> <span class="pre">'8',</span> <span class="pre">'0x39':</span> <span class="pre">'9',</span> <span class="pre">'0x3a':</span> <span class="pre">':',</span> <span class="pre">'0x3b':</span> <span class="pre">';',</span> <span class="pre">'0x3c':</span> <span class="pre">'&lt;',</span> <span class="pre">'0x3d':</span> <span class="pre">'=',</span> <span class="pre">'0x3e':</span> <span class="pre">'&gt;',</span> <span class="pre">'0x3f':</span> <span class="pre">'?',</span> <span class="pre">'0x40':</span> <span class="pre">'&#64;',</span> <span class="pre">'0x41':</span> <span class="pre">'A',</span> <span class="pre">'0x42':</span> <span class="pre">'B',</span> <span class="pre">'0x43':</span> <span class="pre">'C',</span> <span class="pre">'0x44':</span> <span class="pre">'D',</span> <span class="pre">'0x45':</span> <span class="pre">'E',</span> <span class="pre">'0x46':</span> <span class="pre">'F',</span> <span class="pre">'0x47':</span> <span class="pre">'G',</span> <span class="pre">'0x48':</span> <span class="pre">'H',</span> <span class="pre">'0x49':</span> <span class="pre">'I',</span> <span class="pre">'0x4a':</span> <span class="pre">'J',</span> <span class="pre">'0x4b':</span> <span class="pre">'K',</span> <span class="pre">'0x4c':</span> <span class="pre">'L',</span> <span class="pre">'0x4d':</span> <span class="pre">'M',</span> <span class="pre">'0x4e':</span> <span class="pre">'N',</span> <span class="pre">'0x4f':</span> <span class="pre">'O',</span> <span class="pre">'0x50':</span> <span class="pre">'P',</span> <span class="pre">'0x51':</span> <span class="pre">'Q',</span> <span class="pre">'0x52':</span> <span class="pre">'R',</span> <span class="pre">'0x53':</span> <span class="pre">'S',</span> <span class="pre">'0x54':</span> <span class="pre">'T',</span> <span class="pre">'0x55':</span> <span class="pre">'U',</span> <span class="pre">'0x56':</span> <span class="pre">'V',</span> <span class="pre">'0x57':</span> <span class="pre">'W',</span> <span class="pre">'0x58':</span> <span class="pre">'X',</span> <span class="pre">'0x59':</span> <span class="pre">'Y',</span> <span class="pre">'0x5a':</span> <span class="pre">'Z',</span> <span class="pre">'0x5b':</span> <span class="pre">'[',</span> <span class="pre">'0x5c':</span> <span class="pre">'\\',</span> <span class="pre">'0x5d':</span> <span class="pre">']',</span> <span class="pre">'0x5e':</span> <span class="pre">'^',</span> <span class="pre">'0x5f':</span> <span class="pre">'_',</span> <span class="pre">'0x60':</span> <span class="pre">'`',</span> <span class="pre">'0x61':</span> <span class="pre">'a',</span> <span class="pre">'0x62':</span> <span class="pre">'b',</span> <span class="pre">'0x63':</span> <span class="pre">'c',</span> <span class="pre">'0x64':</span> <span class="pre">'d',</span> <span class="pre">'0x65':</span> <span class="pre">'e',</span> <span class="pre">'0x66':</span> <span class="pre">'f',</span> <span class="pre">'0x67':</span> <span class="pre">'g',</span> <span class="pre">'0x68':</span> <span class="pre">'h',</span> <span class="pre">'0x69':</span> <span class="pre">'i',</span> <span class="pre">'0x6a':</span> <span class="pre">'j',</span> <span class="pre">'0x6b':</span> <span class="pre">'k',</span> <span class="pre">'0x6c':</span> <span class="pre">'l',</span> <span class="pre">'0x6d':</span> <span class="pre">'m',</span> <span class="pre">'0x6e':</span> <span class="pre">'n',</span> <span class="pre">'0x6f':</span> <span class="pre">'o',</span> <span class="pre">'0x70':</span> <span class="pre">'p',</span> <span class="pre">'0x71':</span> <span class="pre">'q',</span> <span class="pre">'0x72':</span> <span class="pre">'r',</span> <span class="pre">'0x73':</span> <span class="pre">'s',</span> <span class="pre">'0x74':</span> <span class="pre">'t',</span> <span class="pre">'0x75':</span> <span class="pre">'u',</span> <span class="pre">'0x76':</span> <span class="pre">'v',</span> <span class="pre">'0x77':</span> <span class="pre">'w',</span> <span class="pre">'0x78':</span> <span class="pre">'x',</span> <span class="pre">'0x79':</span> <span class="pre">'y',</span> <span class="pre">'0x7a':</span> <span class="pre">'z',</span> <span class="pre">'0x7b':</span> <span class="pre">'{',</span> <span class="pre">'0x7c':</span> <span class="pre">'|',</span> <span class="pre">'0x7d':</span> <span class="pre">'}',</span> <span class="pre">'0x7e':</span> <span class="pre">'~',</span> <span class="pre">'0x9':</span> <span class="pre">'\t',</span> <span class="pre">'0xa':</span> <span class="pre">'\n',</span> <span class="pre">'0xb':</span> <span class="pre">'\x0b',</span> <span class="pre">'0xc':</span> <span class="pre">'\x0c',</span> <span class="pre">'0xd':</span> <span class="pre">'\r'},</span> <span class="pre">'uu_charset':</span> <span class="pre">&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;}</span></em><a class="headerlink" href="#cryptanalib.encoding.format.decoding" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="cryptanalib.encoding.format.Format.decode_uu_charset">
+<span class="sig-name descname"><span class="pre">decode_uu_charset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cipher_text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.encoding.format.Format.decode_uu_charset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decode the uu encoded string in argument to ascii string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cipher_text</strong> – string</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cryptanalib.encoding.format</span> <span class="kn">import</span> <span class="n">Format</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span> <span class="o">=</span> <span class="n">Format</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="o">.</span><span class="n">decoding</span><span class="p">[</span><span class="s2">&quot;ascii_charset&quot;</span><span class="p">][</span><span class="s2">&quot;0x41&quot;</span><span class="p">]</span>
+<span class="go">&#39;A&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="o">.</span><span class="n">decoding</span><span class="p">[</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">](</span><span class="s2">&quot;ABCDAZERTY&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">format</span><span class="o">.</span><span class="n">decode_uu_charset</span><span class="p">(</span><span class="s2">&quot;ABCDAZERTY&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;AAAAB&quot;</span> <span class="o">==</span> <span class="nb">format</span><span class="o">.</span><span class="n">decoding</span><span class="p">[</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">encoding</span><span class="p">[</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">](</span><span class="s2">&quot;AAAAB&quot;</span><span class="p">))</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cryptanalib.encoding.format.Format.get_bits">
+<span class="sig-name descname"><span class="pre">get_bits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.encoding.format.Format.get_bits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cryptanalib.encoding.format.Format.decoding">
+<span class="sig-name descname"><span class="pre">decoding</span></span><a class="headerlink" href="#cryptanalib.encoding.format.Format.decoding" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decode text to specific encoding.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -173,15 +210,22 @@
 </ul>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cryptanalib.encoding.format</span> <span class="kn">import</span> <span class="n">decoding</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">encode_uu_charset</span><span class="p">,</span> <span class="n">decode_uu_charset</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">decoding</span><span class="p">[</span><span class="s2">&quot;ascii_charset&quot;</span><span class="p">][</span><span class="s2">&quot;0x41&quot;</span><span class="p">]</span>
-<span class="go">    A</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">decoding</span><span class="p">[</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">](</span><span class="s2">&quot;ABCDAZERTY&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">decode_uu_charset</span><span class="p">(</span><span class="s2">&quot;ABCDAZERTY&quot;</span><span class="p">)</span>
-<span class="go">    True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;AAAAB&quot;</span> <span class="o">==</span> <span class="n">decoding</span><span class="p">[</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">](</span><span class="n">encoding</span><span class="p">[</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">](</span><span class="s2">&quot;AAAAB&quot;</span><span class="p">))</span>
-<span class="go">    True</span>
-</pre></div>
-</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cryptanalib.encoding.format.Format.encoding">
+<span class="sig-name descname"><span class="pre">encoding</span></span><a class="headerlink" href="#cryptanalib.encoding.format.Format.encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode text to specific encoding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ascii_charset</strong> – encode single char to ascii hexadecimal</p></li>
+<li><p><strong>uu_charset</strong> – encode text to uu encoding</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -206,6 +250,7 @@
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 </ul>
 
 <div class="relations">
@@ -213,6 +258,7 @@
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="index.html" title="previous chapter">Welcome to cryptanalib’s documentation!</a></li>
+      <li>Next: <a href="usage.html" title="next chapter">Usage</a></li>
   </ul></li>
 </ul>
 </div>

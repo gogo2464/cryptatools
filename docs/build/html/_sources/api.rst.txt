@@ -22,6 +22,11 @@ API
 
 .. automodule:: cryptanalib.encoding
 
-.. autodata:: cryptanalib.encoding.format.encoding
+.. autoclass:: cryptanalib.encoding.format.Format
+   :members: encoding, decoding
 
-.. autodata:: cryptanalib.encoding.format.decoding
+    .. automethod:: encode_uu_charset(self, cipher_text)
+
+    .. automethod:: decode_uu_charset(self, cipher_text)
+
+    .. automethod:: get_bits(num, start, end, length=64)

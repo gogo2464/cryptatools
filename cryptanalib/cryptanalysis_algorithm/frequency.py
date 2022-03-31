@@ -1,11 +1,12 @@
 import nltk
-from cryptanalib.encoding.format import encoding
+from cryptanalib.encoding.format import Format
 
 
 class FrequencyAnalysis:
     def __init__(self):
         self.caracters_frequency = None
         self.corpus_caracters_frequency = None
+        self.encoding_format = Format()
 
     def set_letters_frequency_from_nltk_corpus(self, corpus_names):
         r"""
@@ -55,7 +56,7 @@ class FrequencyAnalysis:
                 caracters_size_in_corpus = len(new_corpus.raw(fileids=fileid))
 
                 alphabet_frequency = dict([(match, len([word for word in new_corpus.raw(fileid)
-                                      if match in word]) / caracters_size_in_corpus) for match in list(encoding['ascii_charset'].keys())])
+                                      if match in word]) / caracters_size_in_corpus) for match in list(self.encoding_format.encoding['ascii_charset'].keys())])
 
                 frequency_of_each_corpus_sum.append(alphabet_frequency)
                 self.corpus_caracters_frequency[fileid] = alphabet_frequency
@@ -82,6 +83,6 @@ class FrequencyAnalysis:
 
         alphabet_frequency = dict([(match, len([word for word in target_code
             if match in word]) / target_size) for match in
-                                   list(encoding['ascii_charset'].keys())])
+                                   list(self.encoding_format.encoding['ascii_charset'].keys())])
 
         return alphabet_frequency
