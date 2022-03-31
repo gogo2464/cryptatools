@@ -17,3 +17,5 @@ API
     .. automethod:: detect_plain_text(self, plain_or_cipher_text, similarity_level=0.5)
 
 .. autodata:: cryptanalib.encoding.format.encoding
+
+.. autodata:: cryptanalib.encoding.format.decoding
