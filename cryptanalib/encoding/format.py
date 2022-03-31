@@ -90,7 +90,6 @@ Encode text to specific encoding.
     True
 """
 
-
 decoding = dict(
     ascii_charset = {hex(ord(number)) : number for number in string.printable},
     uu_charset = lambda a: decode_uu_charset(a)

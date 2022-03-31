@@ -6,11 +6,15 @@
 Welcome to cryptanalib's documentation!
 =======================================
 
+Cryptanalib is a library to exploit flaws and misconceptions in cryptography for CTFs.
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    api
+   usage
 
 
 
