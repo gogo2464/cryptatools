@@ -25,10 +25,7 @@ class Format:
 
         :param ascii_charset: decode single hexadecimal char
         :param uu_charset: decode uu encoded text to plain text
-
-
         """
-
 
     def encode_uu_charset(self, cipher_text):
         """
@@ -95,6 +92,8 @@ class Format:
         True
         >>> "AAAAB" == format.decoding["uu_charset"](format.encoding["uu_charset"]("AAAAB"))
         True
+        >>> format.decoding["uu_charset"]("A5&AI<R!I<R!A(&=R96%T(&1A>2!T;R!D:64@=&]D87DA")
+        'This is a great day to die today!'
         """
         plain_text = ""
 
