@@ -26,7 +26,6 @@ class CaesarNumberEncryption:
         >>> c = CaesarNumberEncryption(Alphabet().ascii_albhabet)
         >>> "".join([chr(cipher_text_list) for cipher_text_list in c.encrypt([0x41, 0x41, 0x41], 10)])
         'KKK'
-
         >>> c = CaesarNumberEncryption(Alphabet().ascii_albhabet)
         >>> "".join([chr(cipher_text_list) for cipher_text_list in c.encrypt([0x53, 0x55, 0x50, 0x45, 0x52, 0x21], 10)])
         ']_ZO\\\+'

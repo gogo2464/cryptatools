@@ -32,7 +32,7 @@ class PlainTextDetector:
                     return True
                 else:
                     return False
-            except:
+            except ZeroDivisionError:
                 return False
         else:
             raise("Language {0} not supported yet.")
