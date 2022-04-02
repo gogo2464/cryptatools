@@ -40,3 +40,12 @@ class CaesarNumberEncryption:
             char = (char + key) % self.alphabet_size
             result.append(char)
         return result
+
+    def reverse_encrypt(self, plain_text, key):
+        result = []
+
+        for i in range(len(plain_text)):
+            char = plain_text[i]
+            char = (char - key) % self.alphabet_size
+            result.append(char)
+        return result

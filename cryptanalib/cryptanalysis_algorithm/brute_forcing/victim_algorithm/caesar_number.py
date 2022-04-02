@@ -4,8 +4,10 @@ from cryptanalib.encoding.format import Format
 from cryptanalib.encryption.caesar_number_encryption import CaesarNumberEncryption
 from cryptanalib.encoding.alphabet import Alphabet
 
+import re
+
 class CaesareNumberBruteForcer(GenericBruteForcer):
-    def __init__(self, alphabet=Alphabet().ascii_albhabet):
+    def __init__(self, alphabet=Alphabet().ascii_albhabet, ignore_characters=None):
         """
         Class to handle brute forcing on the caesar algorithm.
 
@@ -15,8 +17,9 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
         :param alphabet: string
         """
         self.alphabet = alphabet
+        self.ignore_characters=ignore_characters
 
-    def brute_force(self, cipher_text, format="ascii_charset", language="english", frequency_required=0.25):
+    def brute_force(self, cipher_text, format="ascii_charset", language="english", frequency_required=0.25, max_retries=None):
         """
         Brute force any possibility of alphabets shifting with the caesar encryption algorithm.
 
@@ -54,10 +57,12 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
         """
         ptd = PlainTextDetector(language=language)
         f = Format()
+        caesar = CaesarNumberEncryption(self.alphabet)
+        if max_retries == None:
+            max_retries = len(self.alphabet)
 
         if format == "uu_charset":
-            caesar = CaesarNumberEncryption(self.alphabet)
-            for i in range(30):
+            for i in range(max_retries):
                 brute_forced_text = caesar.encrypt(cipher_text, i)
                 potentially_decoded_brute_forced_text = f.decoding[format]("".join([chr(text) for text in brute_forced_text]))#todo: pass hex to uu next
                 is_plain_text_found = ptd.detect_plain_text(potentially_decoded_brute_forced_text, frequency_required)
@@ -65,11 +70,47 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
                 if is_plain_text_found == True:
                     print("Caesar number algorithm successfully brute forced with key {0}".format(i))
                     return potentially_decoded_brute_forced_text
-
-            raise("Brute forcing failed.")
-
         elif format == "ascii_charset":
-            raise ("need to be implemented!")
+            for i in range(max_retries):
+                delimiters = dict()
+                for d in self.ignore_characters:
+                    delimiters[d] = []
+                if self.ignore_characters != None:
+                    for c in range(len(cipher_text)):
+                        for split in self.ignore_characters:
+                            if split == chr(cipher_text[c]):
+                                delimiters[split].append(c)
+
+                    brute_forced_text = caesar.encrypt(cipher_text, i)
+                    potentially_decoded_brute_forced_text = "".join([chr(text) for text in brute_forced_text])
+
+                    for d in self.ignore_characters:
+                        for l in delimiters[d]:
+                            potentially_decoded_brute_forced_text = potentially_decoded_brute_forced_text[:l] + d + potentially_decoded_brute_forced_text[l+1:]
+                else:
+                    brute_forced_text = caesar.encrypt(cipher_text, i)
+                    potentially_decoded_brute_forced_text = "".join([chr(text) for text in brute_forced_text])
+                is_plain_text_found = ptd.detect_plain_text(potentially_decoded_brute_forced_text, frequency_required)
+
+                if is_plain_text_found == True:
+                    print("Caesar number algorithm successfully brute forced with key {0}".format(i))
+                    return potentially_decoded_brute_forced_text
+                else:
+                    print("Sentence {0}/{1}: not detected on '{2}'".format(i, max_retries, potentially_decoded_brute_forced_text))
+
+            print("Now in reverse mode:")
+            for i in range(max_retries):
+                brute_forced_text = caesar.reverse_encrypt(cipher_text, i)
+                potentially_decoded_brute_forced_text = "".join([chr(text) for text in brute_forced_text])
+                is_plain_text_found = ptd.detect_plain_text(potentially_decoded_brute_forced_text, frequency_required)
+
+                if is_plain_text_found == True:
+                    print("Caesar number algorithm successfully brute forced with key {0}".format(i))
+                    return potentially_decoded_brute_forced_text
+                else:
+                    print("Sentence {0}/{1}: not detected on '{2}'".format(i, max_retries, potentially_decoded_brute_forced_text))
 
         else:
             raise ("need to be implemented!")
+
+        raise ("Brute forcing failed.")

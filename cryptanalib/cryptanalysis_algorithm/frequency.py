@@ -86,3 +86,5 @@ class FrequencyAnalysis:
                                    list(self.encoding_format.encoding['ascii_charset'].keys())])
 
         return alphabet_frequency
+
+    def compare_with_corpus_frequency(self):
