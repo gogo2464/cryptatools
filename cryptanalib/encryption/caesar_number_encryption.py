@@ -9,7 +9,7 @@ class CaesarNumberEncryption:
         :param alphabet: list of int
         """
         self.format = Format()
-        self.alphabet_size = len(alphabet)
+        self.alphabet = alphabet
 
     def encrypt(self, plain_text, key):
         """
@@ -36,8 +36,7 @@ class CaesarNumberEncryption:
         result = []
 
         for i in range(len(plain_text)):
-            char = plain_text[i]
-            char = (char + key) % self.alphabet_size
+            char = (plain_text[i] + key) % len(self.alphabet)#char = (plain_text.find(plain_text[i]) + key) % len(self.alphabet)
             result.append(char)
         return result
 
@@ -45,7 +44,6 @@ class CaesarNumberEncryption:
         result = []
 
         for i in range(len(plain_text)):
-            char = plain_text[i]
-            char = (char - key) % self.alphabet_size
+            char = (plain_text[i] - key) % len(self.alphabet)
             result.append(char)
         return result
