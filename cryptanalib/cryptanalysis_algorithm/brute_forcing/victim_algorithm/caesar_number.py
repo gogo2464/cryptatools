@@ -15,7 +15,7 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
         :param alphabet: string
         """
         self.alphabet = alphabet
-        self.ignore_characters=ignore_characters
+        self.ignore_characters = ignore_characters
 
     def brute_force(self, cipher_text, encoding="no_encoding", language="english", frequency_required=0.25, max_retries=None):
         r"""
@@ -56,10 +56,8 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
         >>> cnbf = CaesareNumberBruteForcer(basic_alphabet, ignore_characters=[" ", "\n"])
         >>> cipher_text = [basic_alphabet.index(cipher_text) % 26 if cipher_text != " " and cipher_text != "\n" else cipher_text for cipher_text in abc]
         >>> cnbf.brute_force(cipher_text, encoding="no_encoding", language="english", frequency_required=0.75)
-        [6, 3, 10, 10, 13, ' ', 6, 13, 21, ' ', 25, 16, 3, ' ', 23, 13, 19]
         0.0 level of similarity with the common words: [].
         Sentence 0/26: not detected on 'gdkkn gnv zqd xnt'
-        [6, 3, 10, 10, 13, ' ', 6, 13, 21, ' ', 25, 16, 3, ' ', 23, 13, 19]
         1.0 level of similarity with the common words: ['hello', 'how', 'are', 'you'].
         Caesar number algorithm successfully brute forced with key 1
         'hello how are you'
@@ -69,10 +67,8 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
         >>> cnbf = CaesareNumberBruteForcer(ascii_alphabet, ignore_characters=[" "])
         >>> cipher_text = [ascii_alphabet.index(cipher_text) if cipher_text != " " else cipher_text for cipher_text in abc]
         >>> cnbf.brute_force(cipher_text, encoding="no_encoding", language="english", frequency_required=0.75)
-        [16, 13, 20, 20, 23, ' ', 16, 23, 31, ' ', 35, 26, 13, ' ', 33, 23, 29]
         0.0 level of similarity with the common words: [].
         Sentence 0/100: not detected on 'gdkkn gnv zqd xnt'
-        [16, 13, 20, 20, 23, ' ', 16, 23, 31, ' ', 35, 26, 13, ' ', 33, 23, 29]
         1.0 level of similarity with the common words: ['hello', 'how', 'Are', 'you'].
         Caesar number algorithm successfully brute forced with key 1
         'hello how Are you'
@@ -98,17 +94,13 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
                     j = 0
                     brute_forced_text = []
                     brute_forced_chunk = []
-                    print(cipher_text)
                     while j < len(cipher_text):
                         if cipher_text[j] not in self.ignore_characters:
                             brute_forced_chunk.append(cipher_text[j])
                             j += 1
                         else:
                             brute_forced_text += caesar.encrypt(brute_forced_chunk, i)
-                            try:
-                                brute_forced_text += cipher_text[j]
-                            except:
-                                pass
+                            brute_forced_text += cipher_text[j]
                             j += 1
                             brute_forced_chunk = []
 
