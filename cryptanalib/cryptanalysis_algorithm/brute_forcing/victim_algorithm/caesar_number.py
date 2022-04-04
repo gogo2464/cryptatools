@@ -17,7 +17,7 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
         self.alphabet = alphabet
         self.ignore_characters=ignore_characters
 
-    def brute_force(self, cipher_text, format="no_encoding", language="english", frequency_required=0.25, max_retries=None):
+    def brute_force(self, cipher_text, encoding="no_encoding", language="english", frequency_required=0.25, max_retries=None):
         r"""
         Brute force any possibility of alphabets shifting with the caesar encryption algorithm.
 
@@ -25,7 +25,7 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
         Then if some natural language words correspond to a dictionary of language specified by the language in the variable language, return a list of hex values of the decoded palin text.
 
         :param cipher_text: list of int
-        :param format: string
+        :param encoding: string
         :param language: string
         :return: array of hex values
 
@@ -33,12 +33,12 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
         >>> from cryptanalib.encoding.alphabet import Alphabet
         >>> from cryptanalib.encoding.format import Format
         >>> cnbf = CaesareNumberBruteForcer(alphabet=Alphabet().ascii_albhabet)
-        >>> cnbf.brute_force([ord(number) for number in list("A5&AI<R!I<R!A(&=R96%T(&1A>2!T;R!D:64@=&]D87DA")], format="uu_charset", language="english", frequency_required=0.25)
+        >>> cnbf.brute_force([ord(number) for number in list("A5&AI<R!I<R!A(&=R96%T(&1A>2!T;R!D:64@=&]D87DA")], encoding="uu_charset", language="english", frequency_required=0.25)
         1.0 level of similarity with the common words: ['This', 'is', 'a', 'great', 'day', 'to', 'die', 'today', '!'].
         Caesar number algorithm successfully brute forced with key 0
         'This is a great day to die today!'
         >>> cnbf = CaesareNumberBruteForcer(alphabet=Alphabet().ascii_albhabet)
-        >>> cnbf.brute_force([ord(number) for number in list("<0!<D7M∟D7M∟<#!8M41 O#!,<9-∟O6M∟?51/;8!X?32?<")], format="uu_charset", language="english", frequency_required=0.75)
+        >>> cnbf.brute_force([ord(number) for number in list("<0!<D7M∟D7M∟<#!8M41 O#!,<9-∟O6M∟?51/;8!X?32?<")], encoding="uu_charset", language="english", frequency_required=0.75)
         0.42857142857142855 level of similarity with the common words: ['@', '$', '$', '`', 'M', "'"].
         0.6 level of similarity with the common words: [']', '&', 'nU', '#', ']', '`', 'Y', '$', '`'].
         0.5714285714285714 level of similarity with the common words: [']', ']', 'h', '>'].
@@ -55,7 +55,7 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
         >>> abc = "gdkkn gnv zqd xnt"
         >>> cnbf = CaesareNumberBruteForcer(basic_alphabet, ignore_characters=[" ", "\n"])
         >>> cipher_text = [basic_alphabet.index(cipher_text) % 26 if cipher_text != " " and cipher_text != "\n" else cipher_text for cipher_text in abc]
-        >>> cnbf.brute_force(cipher_text, format="no_encoding", language="english", frequency_required=0.75)
+        >>> cnbf.brute_force(cipher_text, encoding="no_encoding", language="english", frequency_required=0.75)
         [6, 3, 10, 10, 13, ' ', 6, 13, 21, ' ', 25, 16, 3, ' ', 23, 13, 19]
         0.0 level of similarity with the common words: [].
         Sentence 0/26: not detected on 'gdkkn gnv zqd xnt'
@@ -68,7 +68,7 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
         >>> ascii_alphabet = string.printable
         >>> cnbf = CaesareNumberBruteForcer(ascii_alphabet, ignore_characters=[" "])
         >>> cipher_text = [ascii_alphabet.index(cipher_text) if cipher_text != " " else cipher_text for cipher_text in abc]
-        >>> cnbf.brute_force(cipher_text, format="no_encoding", language="english", frequency_required=0.75)
+        >>> cnbf.brute_force(cipher_text, encoding="no_encoding", language="english", frequency_required=0.75)
         [16, 13, 20, 20, 23, ' ', 16, 23, 31, ' ', 35, 26, 13, ' ', 33, 23, 29]
         0.0 level of similarity with the common words: [].
         Sentence 0/100: not detected on 'gdkkn gnv zqd xnt'
@@ -83,16 +83,16 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
         if max_retries == None:
             max_retries = len(self.alphabet)
 
-        if format == "uu_charset":
+        if encoding == "uu_charset":
             for i in range(max_retries):
                 brute_forced_text = caesar.encrypt(cipher_text, i)
-                potentially_decoded_brute_forced_text = f.decoding[format]("".join([chr(text) for text in brute_forced_text]))#todo: pass hex to uu next
+                potentially_decoded_brute_forced_text = f.decoding[encoding]("".join([chr(text) for text in brute_forced_text]))#todo: pass hex to uu next
                 is_plain_text_found = ptd.detect_plain_text(potentially_decoded_brute_forced_text, frequency_required)
 
                 if is_plain_text_found == True:
                     print("Caesar number algorithm successfully brute forced with key {0}".format(i))
                     return potentially_decoded_brute_forced_text
-        elif format == "no_encoding":
+        elif encoding == "no_encoding":
             for i in range(len(self.alphabet)):
                 if self.ignore_characters != None:
                     j = 0
@@ -127,6 +127,6 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
                     print("Sentence {0}/{1}: not detected on '{2}'".format(i, max_retries, potentially_decoded_brute_forced_text))
 
         else:
-            raise ("encoding {0} need to be implemented!".format(format))
+            raise ("encoding {0} need to be implemented!".format(encoding))
 
         raise ("Brute forcing failed.")
