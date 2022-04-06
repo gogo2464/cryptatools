@@ -1,14 +1,13 @@
 import string
 
-class Format:
+class Encoding:
     r"""
     Instanciate this class to handle or process a specific format.
     """
     def __init__(self):
-        self.encoding = dict(
-            ascii_charset={number: hex(ord(number)) for number in string.printable},
-            uu_charset=lambda a: self.encode_uu_charset(a)
-        )
+        self.printable_decoding_values = {hex(ord(number)): number for number in string.printable}
+        self.printable_encoding_values = {number: hex(ord(number)) for number in string.printable}
+
         r"""
         Encode text to specific encoding. 
 
@@ -16,16 +15,18 @@ class Format:
         :param uu_charset: encode text to uu encoding
         """
 
-        self.decoding = dict(
-            ascii_charset={hex(ord(number)): number for number in string.printable},
-            uu_charset=lambda a: self.decode_uu_charset(a)
-        )
         r"""
         Decode text to specific encoding. 
 
         :param ascii_charset: decode single hexadecimal char
         :param uu_charset: decode uu encoded text to plain text
         """
+
+    def encode_printable_charset(self, plain_text):
+        pass
+
+    def decode_printable_charset(self, encoded_text):
+        pass
 
     def encode_uu_charset(self, cipher_text):
         """
@@ -34,12 +35,12 @@ class Format:
         :param cipher_text: String
         :return: string
 
-        >>> from cryptanalib.encoding.format import Format
-        >>> format = Format()
-        >>> format.encoding["ascii_charset"]["A"]
+        >>> from cryptanalib.encoding.encoding import Encoding
+        >>> encoding = Encoding()
+        >>> encoding.printable_encoding_values["A"]
         '0x41'
-        >>> format.encoding["uu_charset"]("ABCDAZERTY") == format.encode_uu_charset("ABCDAZERTY")
-        True
+        >>> encoding.encode_uu_charset("ABCDAZERTY")
+        '*04)#1$%:15)460  '
         """
         size_code = chr(len(cipher_text) + 32)
 
@@ -84,15 +85,13 @@ class Format:
         :param cipher_text: string
         :return: string
 
-        >>> from cryptanalib.encoding.format import Format
-        >>> format = Format()
-        >>> format.decoding["ascii_charset"]["0x41"]
+        >>> from cryptanalib.encoding.encoding import Encoding
+        >>> encoding = Encoding()
+        >>> encoding.printable_decoding_values["0x41"]
         'A'
-        >>> format.decoding["uu_charset"]("ABCDAZERTY") == format.decode_uu_charset("ABCDAZERTY")
+        >>> "AAAAB" == encoding.decode_uu_charset(encoding.encode_uu_charset("AAAAB"))
         True
-        >>> "AAAAB" == format.decoding["uu_charset"](format.encoding["uu_charset"]("AAAAB"))
-        True
-        >>> format.decoding["uu_charset"]("A5&AI<R!I<R!A(&=R96%T(&1A>2!T;R!D:64@=&]D87DA")
+        >>> encoding.decode_uu_charset("A5&AI<R!I<R!A(&=R96%T(&1A>2!T;R!D:64@=&]D87DA")
         'This is a great day to die today!'
         """
         plain_text = ""

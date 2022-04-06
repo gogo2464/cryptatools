@@ -6,7 +6,7 @@ modules = ("cryptanalib.cryptanalysis_algorithm.frequency",
            "cryptanalib.cryptanalysis_algorithm.brute_forcing.generic_brute_forcer",
            "cryptanalib.cryptanalysis_algorithm.brute_forcing.victim_algorithm.caesar_number",
            "cryptanalib.encryption.caesar_number_encryption",
-           "cryptanalib.encoding.format",
+           "cryptanalib.encoding.encoding",
            "cryptanalib.encoding.alphabet",
 )
 

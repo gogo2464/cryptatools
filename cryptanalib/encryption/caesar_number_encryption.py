@@ -1,4 +1,4 @@
-from cryptanalib.encoding.format import Format
+from cryptanalib.encoding.encoding import Encoding
 from cryptanalib.encoding.alphabet import Alphabet
 
 class CaesarNumberEncryption:
@@ -8,7 +8,7 @@ class CaesarNumberEncryption:
 
         :param alphabet: list of int
         """
-        self.format = Format()
+        self.encoding = Encoding()
         self.alphabet = alphabet
 
     def encrypt(self, plain_text, key):

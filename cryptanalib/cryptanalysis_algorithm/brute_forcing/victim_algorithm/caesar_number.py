@@ -1,6 +1,6 @@
 from cryptanalib.cryptanalysis_algorithm.brute_forcing.generic_brute_forcer import GenericBruteForcer
 from cryptanalib.cryptanalysis_algorithm.brute_forcing.plain_text_detector import PlainTextDetector
-from cryptanalib.encoding.format import Format
+from cryptanalib.encoding.encoding import Encoding
 from cryptanalib.encryption.caesar_number_encryption import CaesarNumberEncryption
 from cryptanalib.encoding.alphabet import Alphabet
 
@@ -31,7 +31,7 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
 
         >>> from cryptanalib.cryptanalysis_algorithm.brute_forcing.victim_algorithm.caesar_number import CaesareNumberBruteForcer
         >>> from cryptanalib.encoding.alphabet import Alphabet
-        >>> from cryptanalib.encoding.format import Format
+        >>> from cryptanalib.encoding.encoding import Encoding
         >>> cnbf = CaesareNumberBruteForcer(alphabet=Alphabet().ascii_albhabet)
         >>> cnbf.brute_force([ord(number) for number in list("A5&AI<R!I<R!A(&=R96%T(&1A>2!T;R!D:64@=&]D87DA")], encoding="uu_charset", language="english", frequency_required=0.25)
         1.0 level of similarity with the common words: ['This', 'is', 'a', 'great', 'day', 'to', 'die', 'today', '!'].
@@ -48,8 +48,8 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
         Caesar number algorithm successfully brute forced with key 5
         'This is a great day to die today!'
         >>> c = CaesarNumberEncryption(Alphabet().ascii_albhabet)
-        >>> f = Format()
-        >>> f.decoding["uu_charset"]("".join([chr(cipher_text_list) for cipher_text_list in c.encrypt([ord(number) for number in list("<0!<D7M∟D7M∟<#!8M41 O#!,<9-∟O6M∟?51/;8!X?32?<")], 5)]))
+        >>> e = Encoding()
+        >>> e.decode_uu_charset("".join([chr(cipher_text_list) for cipher_text_list in c.encrypt([ord(number) for number in list("<0!<D7M∟D7M∟<#!8M41 O#!,<9-∟O6M∟?51/;8!X?32?<")], 5)]))
         'This is a great day to die today!'
         >>> basic_alphabet = "abcdefghijklmnopqrstuvwxyz"
         >>> abc = "gdkkn gnv zqd xnt"
@@ -74,7 +74,7 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
         'hello how Are you'
         """
         ptd = PlainTextDetector(language=language)
-        f = Format()
+        f = Encoding()
         caesar = CaesarNumberEncryption(self.alphabet)
         if max_retries == None:
             max_retries = len(self.alphabet)
@@ -82,12 +82,13 @@ class CaesareNumberBruteForcer(GenericBruteForcer):
         if encoding == "uu_charset":
             for i in range(max_retries):
                 brute_forced_text = caesar.encrypt(cipher_text, i)
-                potentially_decoded_brute_forced_text = f.decoding[encoding]("".join([chr(text) for text in brute_forced_text]))#todo: pass hex to uu next
+                potentially_decoded_brute_forced_text = f.decode_uu_charset("".join([chr(text) for text in brute_forced_text]))#todo: pass hex to uu next
                 is_plain_text_found = ptd.detect_plain_text(potentially_decoded_brute_forced_text, frequency_required)
 
                 if is_plain_text_found == True:
                     print("Caesar number algorithm successfully brute forced with key {0}".format(i))
                     return potentially_decoded_brute_forced_text
+
         elif encoding == "no_encoding":
             for i in range(len(self.alphabet)):
                 if self.ignore_characters != None:
