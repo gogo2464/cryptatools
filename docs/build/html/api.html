@@ -44,8 +44,73 @@
 </tbody>
 </table>
 <span class="target" id="module-cryptatools"></span><span class="target" id="module-cryptanalib"></span><span class="target" id="module-cryptanalib.cryptanalysis_algorithm"></span><dl class="py class">
+<dt class="sig sig-object py" id="cryptanalib.cryptanalysis_algorithm.coincidence_index.CoincidenceIndex">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cryptanalib.cryptanalysis_algorithm.coincidence_index.</span></span><span class="sig-name descname"><span class="pre">CoincidenceIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alphabet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?&#64;[\\]^_`{|}~</span> <span class="pre">\t\n\r\x0b\x0c'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.cryptanalysis_algorithm.coincidence_index.CoincidenceIndex" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="cryptanalib.cryptanalysis_algorithm.coincidence_index.CoincidenceIndex.set_coincidence_index_from_nltk_corpus">
+<span class="sig-name descname"><span class="pre">set_coincidence_index_from_nltk_corpus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">corpus_names</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.cryptanalysis_algorithm.coincidence_index.CoincidenceIndex.set_coincidence_index_from_nltk_corpus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download one or more corpus from nltk database to set average of index of coincidence for each corpus downloaded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>corpus_names</strong> – list of string</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fa</span> <span class="o">=</span> <span class="n">CoincidenceIndex</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fa</span><span class="o">.</span><span class="n">set_coincidence_index_from_nltk_corpus</span><span class="p">([</span><span class="s1">&#39;gutenberg&#39;</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">])</span>
+<span class="go">loading file austen-emma.txt from corpus gutenberg</span>
+<span class="go">loading file austen-persuasion.txt from corpus gutenberg</span>
+<span class="go">loading file austen-sense.txt from corpus gutenberg</span>
+<span class="go">loading file bible-kjv.txt from corpus gutenberg</span>
+<span class="go">loading file blake-poems.txt from corpus gutenberg</span>
+<span class="go">loading file bryant-stories.txt from corpus gutenberg</span>
+<span class="go">loading file burgess-busterbrown.txt from corpus gutenberg</span>
+<span class="go">loading file carroll-alice.txt from corpus gutenberg</span>
+<span class="go">loading file chesterton-ball.txt from corpus gutenberg</span>
+<span class="go">loading file chesterton-brown.txt from corpus gutenberg</span>
+<span class="go">loading file chesterton-thursday.txt from corpus gutenberg</span>
+<span class="go">loading file edgeworth-parents.txt from corpus gutenberg</span>
+<span class="go">loading file melville-moby_dick.txt from corpus gutenberg</span>
+<span class="go">loading file milton-paradise.txt from corpus gutenberg</span>
+<span class="go">loading file shakespeare-caesar.txt from corpus gutenberg</span>
+<span class="go">loading file shakespeare-hamlet.txt from corpus gutenberg</span>
+<span class="go">loading file shakespeare-macbeth.txt from corpus gutenberg</span>
+<span class="go">loading file whitman-leaves.txt from corpus gutenberg</span>
+<span class="go">loading file cats.txt from corpus brown</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fa</span><span class="o">.</span><span class="n">coincidence_index</span>
+<span class="go">0.053484400675862256</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cryptanalib.cryptanalysis_algorithm.coincidence_index.CoincidenceIndex.measure_coincidence_index_from_target">
+<span class="sig-name descname"><span class="pre">measure_coincidence_index_from_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_alphabet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.cryptanalysis_algorithm.coincidence_index.CoincidenceIndex.measure_coincidence_index_from_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return frequency of caracters supplied in the target monoalphabetic caracter cipher code in argument.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>target_code</strong> – list of caracters</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dictionary with caracters (keys) and float (values)</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fa</span> <span class="o">=</span> <span class="n">CoincidenceIndex</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fa</span><span class="o">.</span><span class="n">measure_coincidence_index_from_target</span><span class="p">([</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">])</span>
+<span class="go">0.1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="cryptanalib.cryptanalysis_algorithm.frequency.FrequencyAnalysis">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cryptanalib.cryptanalysis_algorithm.frequency.</span></span><span class="sig-name descname"><span class="pre">FrequencyAnalysis</span></span><a class="headerlink" href="#cryptanalib.cryptanalysis_algorithm.frequency.FrequencyAnalysis" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cryptanalib.cryptanalysis_algorithm.frequency.</span></span><span class="sig-name descname"><span class="pre">FrequencyAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alphabet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.cryptanalysis_algorithm.frequency.FrequencyAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="cryptanalib.cryptanalysis_algorithm.frequency.FrequencyAnalysis.set_letters_frequency_from_nltk_corpus">
 <span class="sig-name descname"><span class="pre">set_letters_frequency_from_nltk_corpus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">corpus_names</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.cryptanalysis_algorithm.frequency.FrequencyAnalysis.set_letters_frequency_from_nltk_corpus" title="Permalink to this definition">¶</a></dt>
@@ -125,7 +190,7 @@ Then if some natural language words correspond to a dictionary of language speci
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>cipher_text</strong> – list of int</p></li>
-<li><p><strong>format</strong> – string</p></li>
+<li><p><strong>encoding</strong> – string</p></li>
 <li><p><strong>language</strong> – string</p></li>
 </ul>
 </dd>
@@ -135,15 +200,14 @@ Then if some natural language words correspond to a dictionary of language speci
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cryptanalib.cryptanalysis_algorithm.brute_forcing.victim_algorithm.caesar_number</span> <span class="kn">import</span> <span class="n">CaesareNumberBruteForcer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cryptanalib.encoding.alphabet</span> <span class="kn">import</span> <span class="n">Alphabet</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cryptanalib.encoding.encoding</span> <span class="kn">import</span> <span class="n">Encoding</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cnbf</span> <span class="o">=</span> <span class="n">CaesareNumberBruteForcer</span><span class="p">(</span><span class="n">alphabet</span><span class="o">=</span><span class="n">Alphabet</span><span class="p">()</span><span class="o">.</span><span class="n">ascii_albhabet</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cnbf</span><span class="o">.</span><span class="n">brute_force</span><span class="p">([</span><span class="nb">ord</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;A5&amp;AI&lt;R!I&lt;R!A(&amp;=R96%T(&amp;1A&gt;2!T;R!D:64@=&amp;]D87DA&quot;</span><span class="p">)],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;english&quot;</span><span class="p">,</span> <span class="n">frequency_required</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cnbf</span><span class="o">.</span><span class="n">brute_force</span><span class="p">([</span><span class="nb">ord</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;A5&amp;AI&lt;R!I&lt;R!A(&amp;=R96%T(&amp;1A&gt;2!T;R!D:64@=&amp;]D87DA&quot;</span><span class="p">)],</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;english&quot;</span><span class="p">,</span> <span class="n">frequency_required</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
 <span class="go">1.0 level of similarity with the common words: [&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;great&#39;, &#39;day&#39;, &#39;to&#39;, &#39;die&#39;, &#39;today&#39;, &#39;!&#39;].</span>
 <span class="go">Caesar number algorithm successfully brute forced with key 0</span>
 <span class="go">&#39;This is a great day to die today!&#39;</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cnbf</span> <span class="o">=</span> <span class="n">CaesareNumberBruteForcer</span><span class="p">(</span><span class="n">alphabet</span><span class="o">=</span><span class="n">Alphabet</span><span class="p">()</span><span class="o">.</span><span class="n">ascii_albhabet</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cnbf</span><span class="o">.</span><span class="n">brute_force</span><span class="p">([</span><span class="nb">ord</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;&lt;0!&lt;D7M∟D7M∟&lt;#!8M41 O#!,&lt;9-∟O6M∟?51/;8!X?32?&lt;&quot;</span><span class="p">)],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;english&quot;</span><span class="p">,</span> <span class="n">frequency_required</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cnbf</span> <span class="o">=</span> <span class="n">CaesareNumberBruteForcer</span><span class="p">(</span><span class="n">alphabet</span><span class="o">=</span><span class="n">Alphabet</span><span class="p">()</span><span class="o">.</span><span class="n">ascii_albhabet</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cnbf</span><span class="o">.</span><span class="n">brute_force</span><span class="p">([</span><span class="nb">ord</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;&lt;0!&lt;D7M∟D7M∟&lt;#!8M41 O#!,&lt;9-∟O6M∟?51/;8!X?32?&lt;&quot;</span><span class="p">)],</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;english&quot;</span><span class="p">,</span> <span class="n">frequency_required</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
 <span class="go">0.42857142857142855 level of similarity with the common words: [&#39;@&#39;, &#39;$&#39;, &#39;$&#39;, &#39;`&#39;, &#39;M&#39;, &quot;&#39;&quot;].</span>
 <span class="go">0.6 level of similarity with the common words: [&#39;]&#39;, &#39;&amp;&#39;, &#39;nU&#39;, &#39;#&#39;, &#39;]&#39;, &#39;`&#39;, &#39;Y&#39;, &#39;$&#39;, &#39;`&#39;].</span>
 <span class="go">0.5714285714285714 level of similarity with the common words: [&#39;]&#39;, &#39;]&#39;, &#39;h&#39;, &#39;&gt;&#39;].</span>
@@ -152,11 +216,31 @@ Then if some natural language words correspond to a dictionary of language speci
 <span class="go">1.0 level of similarity with the common words: [&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;great&#39;, &#39;day&#39;, &#39;to&#39;, &#39;die&#39;, &#39;today&#39;, &#39;!&#39;].</span>
 <span class="go">Caesar number algorithm successfully brute forced with key 5</span>
 <span class="go">&#39;This is a great day to die today!&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cryptanalib.encoding.format</span> <span class="kn">import</span> <span class="n">Format</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">CaesarNumberEncryption</span><span class="p">(</span><span class="n">Alphabet</span><span class="p">()</span><span class="o">.</span><span class="n">ascii_albhabet</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">Format</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">decoding</span><span class="p">[</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">](</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="n">cipher_text_list</span><span class="p">)</span> <span class="k">for</span> <span class="n">cipher_text_list</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">encrypt</span><span class="p">([</span><span class="nb">ord</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;&lt;0!&lt;D7M∟D7M∟&lt;#!8M41 O#!,&lt;9-∟O6M∟?51/;8!X?32?&lt;&quot;</span><span class="p">)],</span> <span class="mi">5</span><span class="p">)]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">Encoding</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span><span class="o">.</span><span class="n">decode_uu_charset</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="n">cipher_text_list</span><span class="p">)</span> <span class="k">for</span> <span class="n">cipher_text_list</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">encrypt</span><span class="p">([</span><span class="nb">ord</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;&lt;0!&lt;D7M∟D7M∟&lt;#!8M41 O#!,&lt;9-∟O6M∟?51/;8!X?32?&lt;&quot;</span><span class="p">)],</span> <span class="mi">5</span><span class="p">)]))</span>
 <span class="go">&#39;This is a great day to die today!&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">basic_alphabet</span> <span class="o">=</span> <span class="s2">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">abc</span> <span class="o">=</span> <span class="s2">&quot;gdkkn gnv zqd xnt&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cnbf</span> <span class="o">=</span> <span class="n">CaesareNumberBruteForcer</span><span class="p">(</span><span class="n">basic_alphabet</span><span class="p">,</span> <span class="n">ignore_characters</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cipher_text</span> <span class="o">=</span> <span class="p">[</span><span class="n">basic_alphabet</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">cipher_text</span><span class="p">)</span> <span class="o">%</span> <span class="mi">26</span> <span class="k">if</span> <span class="n">cipher_text</span> <span class="o">!=</span> <span class="s2">&quot; &quot;</span> <span class="ow">and</span> <span class="n">cipher_text</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="k">else</span> <span class="n">cipher_text</span> <span class="k">for</span> <span class="n">cipher_text</span> <span class="ow">in</span> <span class="n">abc</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cnbf</span><span class="o">.</span><span class="n">brute_force</span><span class="p">(</span><span class="n">cipher_text</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;no_encoding&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;english&quot;</span><span class="p">,</span> <span class="n">frequency_required</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="go">0.0 level of similarity with the common words: [].</span>
+<span class="go">Sentence 0/26: not detected on &#39;gdkkn gnv zqd xnt&#39;</span>
+<span class="go">1.0 level of similarity with the common words: [&#39;hello&#39;, &#39;how&#39;, &#39;are&#39;, &#39;you&#39;].</span>
+<span class="go">Caesar number algorithm successfully brute forced with key 1</span>
+<span class="go">&#39;hello how are you&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">string</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">abc</span> <span class="o">=</span> <span class="s2">&quot;gdkkn gnv zqd xnt&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ascii_alphabet</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">printable</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cnbf</span> <span class="o">=</span> <span class="n">CaesareNumberBruteForcer</span><span class="p">(</span><span class="n">ascii_alphabet</span><span class="p">,</span> <span class="n">ignore_characters</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot; &quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cipher_text</span> <span class="o">=</span> <span class="p">[</span><span class="n">ascii_alphabet</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">cipher_text</span><span class="p">)</span> <span class="k">if</span> <span class="n">cipher_text</span> <span class="o">!=</span> <span class="s2">&quot; &quot;</span> <span class="k">else</span> <span class="n">cipher_text</span> <span class="k">for</span> <span class="n">cipher_text</span> <span class="ow">in</span> <span class="n">abc</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cnbf</span><span class="o">.</span><span class="n">brute_force</span><span class="p">(</span><span class="n">cipher_text</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;no_encoding&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;english&quot;</span><span class="p">,</span> <span class="n">frequency_required</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="go">0.0 level of similarity with the common words: [].</span>
+<span class="go">Sentence 0/100: not detected on &#39;gdkkn gnv zqd xnt&#39;</span>
+<span class="go">1.0 level of similarity with the common words: [&#39;hello&#39;, &#39;how&#39;, &#39;Are&#39;, &#39;you&#39;].</span>
+<span class="go">Caesar number algorithm successfully brute forced with key 1</span>
+<span class="go">&#39;hello how Are you&#39;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -193,13 +277,12 @@ Then if some natural language words correspond to a dictionary of language speci
 </dd></dl>
 
 <span class="target" id="module-cryptanalib.encoding"></span><dl class="py class">
-<dt class="sig sig-object py" id="cryptanalib.encoding.format.Format">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cryptanalib.encoding.format.</span></span><span class="sig-name descname"><span class="pre">Format</span></span><a class="headerlink" href="#cryptanalib.encoding.format.Format" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cryptanalib.encoding.encoding.Encoding">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cryptanalib.encoding.encoding.</span></span><span class="sig-name descname"><span class="pre">Encoding</span></span><a class="headerlink" href="#cryptanalib.encoding.encoding.Encoding" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instanciate this class to handle or process a specific format.</p>
-<blockquote>
-<div><dl class="py method">
-<dt class="sig sig-object py" id="cryptanalib.encoding.format.Format.encode_uu_charset">
-<span class="sig-name descname"><span class="pre">encode_uu_charset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cipher_text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.encoding.format.Format.encode_uu_charset" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="cryptanalib.encoding.encoding.Encoding.encode_uu_charset">
+<span class="sig-name descname"><span class="pre">encode_uu_charset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cipher_text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.encoding.encoding.Encoding.encode_uu_charset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encode the cipher text string to a plain text ascii string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -209,19 +292,19 @@ Then if some natural language words correspond to a dictionary of language speci
 <dd class="field-even"><p>string</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cryptanalib.encoding.format</span> <span class="kn">import</span> <span class="n">Format</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span> <span class="o">=</span> <span class="n">Format</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="o">.</span><span class="n">encoding</span><span class="p">[</span><span class="s2">&quot;ascii_charset&quot;</span><span class="p">][</span><span class="s2">&quot;A&quot;</span><span class="p">]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cryptanalib.encoding.encoding</span> <span class="kn">import</span> <span class="n">Encoding</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encoding</span> <span class="o">=</span> <span class="n">Encoding</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encoding</span><span class="o">.</span><span class="n">printable_encoding_values</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">]</span>
 <span class="go">&#39;0x41&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="o">.</span><span class="n">encoding</span><span class="p">[</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">](</span><span class="s2">&quot;ABCDAZERTY&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">format</span><span class="o">.</span><span class="n">encode_uu_charset</span><span class="p">(</span><span class="s2">&quot;ABCDAZERTY&quot;</span><span class="p">)</span>
-<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encoding</span><span class="o">.</span><span class="n">encode_uu_charset</span><span class="p">(</span><span class="s2">&quot;ABCDAZERTY&quot;</span><span class="p">)</span>
+<span class="go">&#39;*04)#1$%:15)460  &#39;</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="cryptanalib.encoding.format.Format.decode_uu_charset">
-<span class="sig-name descname"><span class="pre">decode_uu_charset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cipher_text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.encoding.format.Format.decode_uu_charset" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cryptanalib.encoding.encoding.Encoding.decode_uu_charset">
+<span class="sig-name descname"><span class="pre">decode_uu_charset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cipher_text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.encoding.encoding.Encoding.decode_uu_charset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decode the uu encoded string in argument to ascii string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -231,55 +314,29 @@ Then if some natural language words correspond to a dictionary of language speci
 <dd class="field-even"><p>string</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cryptanalib.encoding.format</span> <span class="kn">import</span> <span class="n">Format</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span> <span class="o">=</span> <span class="n">Format</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="o">.</span><span class="n">decoding</span><span class="p">[</span><span class="s2">&quot;ascii_charset&quot;</span><span class="p">][</span><span class="s2">&quot;0x41&quot;</span><span class="p">]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cryptanalib.encoding.encoding</span> <span class="kn">import</span> <span class="n">Encoding</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encoding</span> <span class="o">=</span> <span class="n">Encoding</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encoding</span><span class="o">.</span><span class="n">printable_decoding_values</span><span class="p">[</span><span class="s2">&quot;0x41&quot;</span><span class="p">]</span>
 <span class="go">&#39;A&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="o">.</span><span class="n">decoding</span><span class="p">[</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">](</span><span class="s2">&quot;ABCDAZERTY&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">format</span><span class="o">.</span><span class="n">decode_uu_charset</span><span class="p">(</span><span class="s2">&quot;ABCDAZERTY&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;AAAAB&quot;</span> <span class="o">==</span> <span class="n">encoding</span><span class="o">.</span><span class="n">decode_uu_charset</span><span class="p">(</span><span class="n">encoding</span><span class="o">.</span><span class="n">encode_uu_charset</span><span class="p">(</span><span class="s2">&quot;AAAAB&quot;</span><span class="p">))</span>
 <span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;AAAAB&quot;</span> <span class="o">==</span> <span class="nb">format</span><span class="o">.</span><span class="n">decoding</span><span class="p">[</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">](</span><span class="nb">format</span><span class="o">.</span><span class="n">encoding</span><span class="p">[</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">](</span><span class="s2">&quot;AAAAB&quot;</span><span class="p">))</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">format</span><span class="o">.</span><span class="n">decoding</span><span class="p">[</span><span class="s2">&quot;uu_charset&quot;</span><span class="p">](</span><span class="s2">&quot;A5&amp;AI&lt;R!I&lt;R!A(&amp;=R96%T(&amp;1A&gt;2!T;R!D:64@=&amp;]D87DA&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encoding</span><span class="o">.</span><span class="n">decode_uu_charset</span><span class="p">(</span><span class="s2">&quot;A5&amp;AI&lt;R!I&lt;R!A(&amp;=R96%T(&amp;1A&gt;2!T;R!D:64@=&amp;]D87DA&quot;</span><span class="p">)</span>
 <span class="go">&#39;This is a great day to die today!&#39;</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="cryptanalib.encoding.format.Format.get_bits">
-<span class="sig-name descname"><span class="pre">get_bits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.encoding.format.Format.get_bits" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cryptanalib.encoding.encoding.Encoding.get_bits">
+<span class="sig-name descname"><span class="pre">get_bits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cryptanalib.encoding.encoding.Encoding.get_bits" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</div></blockquote>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cryptanalib.encoding.format.Format.decoding">
-<span class="sig-name descname"><span class="pre">decoding</span></span><a class="headerlink" href="#cryptanalib.encoding.format.Format.decoding" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decode text to specific encoding.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ascii_charset</strong> – decode single hexadecimal char</p></li>
-<li><p><strong>uu_charset</strong> – decode uu encoded text to plain text</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cryptanalib.encoding.format.Format.encoding">
-<span class="sig-name descname"><span class="pre">encoding</span></span><a class="headerlink" href="#cryptanalib.encoding.format.Format.encoding" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encode text to specific encoding.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ascii_charset</strong> – encode single char to ascii hexadecimal</p></li>
-<li><p><strong>uu_charset</strong> – encode text to uu encoding</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="cryptanalib.encoding.alphabet.Alphabet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cryptanalib.encoding.alphabet.</span></span><span class="sig-name descname"><span class="pre">Alphabet</span></span><a class="headerlink" href="#cryptanalib.encoding.alphabet.Alphabet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <span class="target" id="module-cryptanalib.encryption"></span><dl class="py class">
 <dt class="sig sig-object py" id="cryptanalib.encryption.caesar_number_encryption.CaesarNumberEncryption">
@@ -304,9 +361,7 @@ Then if some natural language words correspond to a dictionary of language speci
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">CaesarNumberEncryption</span><span class="p">(</span><span class="n">Alphabet</span><span class="p">()</span><span class="o">.</span><span class="n">ascii_albhabet</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="n">cipher_text_list</span><span class="p">)</span> <span class="k">for</span> <span class="n">cipher_text_list</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">encrypt</span><span class="p">([</span><span class="mh">0x41</span><span class="p">,</span> <span class="mh">0x41</span><span class="p">,</span> <span class="mh">0x41</span><span class="p">],</span> <span class="mi">10</span><span class="p">)])</span>
 <span class="go">&#39;KKK&#39;</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">CaesarNumberEncryption</span><span class="p">(</span><span class="n">Alphabet</span><span class="p">()</span><span class="o">.</span><span class="n">ascii_albhabet</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">CaesarNumberEncryption</span><span class="p">(</span><span class="n">Alphabet</span><span class="p">()</span><span class="o">.</span><span class="n">ascii_albhabet</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="n">cipher_text_list</span><span class="p">)</span> <span class="k">for</span> <span class="n">cipher_text_list</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">encrypt</span><span class="p">([</span><span class="mh">0x53</span><span class="p">,</span> <span class="mh">0x55</span><span class="p">,</span> <span class="mh">0x50</span><span class="p">,</span> <span class="mh">0x45</span><span class="p">,</span> <span class="mh">0x52</span><span class="p">,</span> <span class="mh">0x21</span><span class="p">],</span> <span class="mi">10</span><span class="p">)])</span>
 <span class="go">&#39;]_ZO\\+&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">CaesarNumberEncryption</span><span class="p">(</span><span class="n">Alphabet</span><span class="p">()</span><span class="o">.</span><span class="n">ascii_albhabet</span><span class="p">)</span><span class="c1">#SUPER - 2 = QSNCP = 51 53 4E 43 50</span>

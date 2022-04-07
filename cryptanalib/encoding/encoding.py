@@ -5,22 +5,13 @@ class Encoding:
     Instanciate this class to handle or process a specific format.
     """
     def __init__(self):
+        r"""
+        Encode or decode from uu/ascii encoding.
+        """
         self.printable_decoding_values = {hex(ord(number)): number for number in string.printable}
         self.printable_encoding_values = {number: hex(ord(number)) for number in string.printable}
 
-        r"""
-        Encode text to specific encoding. 
 
-        :param ascii_charset: encode single char to ascii hexadecimal
-        :param uu_charset: encode text to uu encoding
-        """
-
-        r"""
-        Decode text to specific encoding. 
-
-        :param ascii_charset: decode single hexadecimal char
-        :param uu_charset: decode uu encoded text to plain text
-        """
 
     def encode_printable_charset(self, plain_text):
         pass
@@ -29,7 +20,7 @@ class Encoding:
         pass
 
     def encode_uu_charset(self, cipher_text):
-        """
+        r"""
         Encode the cipher text string to a plain text ascii string.
 
         :param cipher_text: String
@@ -79,7 +70,7 @@ class Encoding:
 
 
     def decode_uu_charset(self, cipher_text):
-        """
+        r"""
         Decode the uu encoded string in argument to ascii string.
 
         :param cipher_text: string

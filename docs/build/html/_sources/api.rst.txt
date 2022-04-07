@@ -10,6 +10,12 @@ API
 
 .. automodule:: cryptanalib.cryptanalysis_algorithm
 
+.. autoclass:: cryptanalib.cryptanalysis_algorithm.coincidence_index::CoincidenceIndex
+
+    .. automethod:: set_coincidence_index_from_nltk_corpus(corpus_names)
+
+    .. automethod:: measure_coincidence_index_from_target(target_code, custom_alphabet=False)
+
 .. autoclass:: cryptanalib.cryptanalysis_algorithm.frequency::FrequencyAnalysis
 
     .. automethod:: set_letters_frequency_from_nltk_corpus(corpus_names)
@@ -30,14 +36,15 @@ API
 
 .. automodule:: cryptanalib.encoding
 
-.. autoclass:: cryptanalib.encoding.format.Format
-   :members: encoding, decoding
+.. autoclass:: cryptanalib.encoding.encoding.Encoding
 
     .. automethod:: encode_uu_charset(cipher_text)
 
     .. automethod:: decode_uu_charset(cipher_text)
 
     .. automethod:: get_bits(num, start, end, length=64)
+
+.. autoclass:: cryptanalib.encoding.alphabet.Alphabet
 
 .. automodule:: cryptanalib.encryption
 

@@ -37,7 +37,7 @@ class CoincidenceIndex:
         loading file shakespeare-macbeth.txt from corpus gutenberg
         loading file whitman-leaves.txt from corpus gutenberg
         loading file cats.txt from corpus brown
-        
+
         >>> fa.coincidence_index
         0.053484400675862256
         """
@@ -67,6 +67,7 @@ class CoincidenceIndex:
     def measure_coincidence_index_from_target(self, target_code, custom_alphabet=False):
         r"""
         Return frequency of caracters supplied in the target monoalphabetic caracter cipher code in argument.
+
 
         :param target_code: list of caracters
         :return: dictionary with caracters (keys) and float (values)
