@@ -116,6 +116,11 @@ class CoincidenceIndex:
         1
 
         >>> import string
+        >>> cipher_text = "two house holds both a like indignity in fair ver on a where wela your scene from ancient grudge break to new mutiny where civil blood makes civil hand sun clean from forth the fatalloins of these two foes a pair of star crossd lover stake the irl"
+        >>> c = CoincidenceIndex(alphabet=string.ascii_lowercase + " ")
+        >>> c.set_target_coincidence_index_from_target(cipher_text)
+        >>> c.target_coincidence_index
+        0.07455317468154439
         >>> cipher_text = "twohouseholdsbothalikeindignityinfairveronawherewelayourscenefromancientgrudgebreaktonewmutinywherecivilbloodmakescivilhandsuncleanfromforththefatalloinsofthesetwofoesapairofstarcrossdloverstaketheirl"
         >>> c = CoincidenceIndex(alphabet=string.ascii_lowercase)
         >>> c.set_target_coincidence_index_from_target(cipher_text)
