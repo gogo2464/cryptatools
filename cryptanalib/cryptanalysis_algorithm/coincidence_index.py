@@ -72,7 +72,7 @@ class CoincidenceIndex:
         self.coincidence_index[1] = sum(results)
 
 
-    def set_target_coincidence_index_from_target(self, target_code, custom_alphabet=False):
+    def set_target_coincidence_index_from_target(self, target_code):
         r"""
         Return frequency of caracters supplied in the target monoalphabetic caracter cipher code in argument.
 
