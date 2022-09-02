@@ -1,22 +1,24 @@
 import nltk
 from cryptanalib.encoding.alphabet import Alphabet
 import statistics
+from os.path import exists
+from pathlib import Path
 
 
 class CoincidenceIndex:
     def __init__(self, alphabet = Alphabet().printable):
         self.coincidence_index = {
-            0.0639: 1,
-            0.0511: 2,
-            0.0468: 3,
-            0.0446: 4,
-            0.0438: 5,
-            0.0426: 6
+            1: 0.0639,
+            2: 0.0511,
+            3: 0.0468,
+            4: 0.0446,
+            5: 0.0438,
+            6: 0.0426,
         }
         self.target_coincidence_index = None
         self.alphabet = alphabet
 
-    def set_coincidence_index_from_nltk_corpus(self, corpus_names):
+    def set_coincidence_index_from_nltk_corpus(self, corpus_names, categories=None):
         r"""
         Download one or more corpus from nltk database to set average of index of coincidence for each corpus downloaded.
 
@@ -47,31 +49,117 @@ class CoincidenceIndex:
         loading file cats.txt from corpus brown
 
         >>> fa.coincidence_index
-        {0.0639: 1, 0.0511: 2, 0.0468: 3, 0.0446: 4, 0.0438: 5, 0.0426: 6, 1: 0.053484400675862256}
+        {0: 0.053484400675862256}
+
+        >>> fa.set_coincidence_index_from_nltk_corpus(['gutenberg', 'brown', 'punkt'], categories=['news'])
+        loading file ca01 from corpus brownon category news
+        loading file ca02 from corpus brownon category news
+        loading file ca03 from corpus brownon category news
+        loading file ca04 from corpus brownon category news
+        loading file ca05 from corpus brownon category news
+        loading file ca06 from corpus brownon category news
+        loading file ca07 from corpus brownon category news
+        loading file ca08 from corpus brownon category news
+        loading file ca09 from corpus brownon category news
+        loading file ca10 from corpus brownon category news
+        loading file ca11 from corpus brownon category news
+        loading file ca12 from corpus brownon category news
+        loading file ca13 from corpus brownon category news
+        loading file ca14 from corpus brownon category news
+        loading file ca15 from corpus brownon category news
+        loading file ca16 from corpus brownon category news
+        loading file ca17 from corpus brownon category news
+        loading file ca18 from corpus brownon category news
+        loading file ca19 from corpus brownon category news
+        loading file ca20 from corpus brownon category news
+        loading file ca21 from corpus brownon category news
+        loading file ca22 from corpus brownon category news
+        loading file ca23 from corpus brownon category news
+        loading file ca24 from corpus brownon category news
+        loading file ca25 from corpus brownon category news
+        loading file ca26 from corpus brownon category news
+        loading file ca27 from corpus brownon category news
+        loading file ca28 from corpus brownon category news
+        loading file ca29 from corpus brownon category news
+        loading file ca30 from corpus brownon category news
+        loading file ca31 from corpus brownon category news
+        loading file ca32 from corpus brownon category news
+        loading file ca33 from corpus brownon category news
+        loading file ca34 from corpus brownon category news
+        loading file ca35 from corpus brownon category news
+        loading file ca36 from corpus brownon category news
+        loading file ca37 from corpus brownon category news
+        loading file ca38 from corpus brownon category news
+        loading file ca39 from corpus brownon category news
+        loading file ca40 from corpus brownon category news
+        loading file ca41 from corpus brownon category news
+        loading file ca42 from corpus brownon category news
+        loading file ca43 from corpus brownon category news
+        loading file ca44 from corpus brownon category news
+
+        >>> fa.coincidence_index
+        {0: 0.060591077352534786}
         """
 
         for corpus in corpus_names:
             nltk.download(corpus)
-            file = nltk.data.find("corpora/" + corpus)
-            new_corpus = nltk.corpus.PlaintextCorpusReader(file, r'.*\.txt',
-                                                           encoding="latin-1")
-            for fileid in new_corpus.fileids():
-                print("loading file " + fileid + " from corpus " + corpus)
-                target_code = new_corpus.raw(fileids=fileid)
-                target_size = len(target_code)
+            if categories is None:
+                try:
+                    file = nltk.data.find(str(Path("corpora") / corpus))
+                except:
+                    pass
+                try:
+                    file = nltk.data.find(str(Path("tokenizers") / corpus))
+                except:
+                    pass
+                new_corpus = nltk.corpus.PlaintextCorpusReader(file, r'.*\.txt', encoding="latin-1")
+                for fileid in new_corpus.fileids():
+                    print("loading file " + fileid + " from corpus " + corpus)
+                    target_code = new_corpus.raw(fileids=fileid)
+                    target_size = len(target_code)
 
-                results = []
-                for character in self.alphabet:
-                    if character in target_code:
-                        apparitions = target_code.count(character)
-                        sum_characters = (apparitions * (apparitions - 1))
-                        divide_characters = target_size * (target_size - 1)
-                        result = sum_characters / divide_characters
-                        results.append(result)
+                    results = []
+                    for character in self.alphabet:
+                        if character in target_code:
+                            apparitions = target_code.count(character)
+                            sum_characters = (apparitions * (apparitions - 1))
+                            divide_characters = target_size * (target_size - 1)
+                            result = sum_characters / divide_characters
+                            results.append(result)
 
-        self.coincidence_index[1] = sum(results)
+                self.coincidence_index = {0: sum(results)}
 
+            else:
+                try:
+                    file = nltk.data.find(str(Path("corpora") / corpus))
+                except:
+                    pass
+                try:
+                    file = nltk.data.find(str(Path("tokenizers") / corpus))
+                except:
+                    pass
 
+                new_corpus = nltk.corpus.reader.plaintext.CategorizedPlaintextCorpusReader(file, r'.*\.*', cat_file='cats.txt'
+                    , encoding="latin-1")
+
+                if exists(str(Path(file) / "cats.txt")):
+                    for category in new_corpus.categories():#for fileid in new_corpus.fileids(categories=categories):
+                        if category in categories:
+                            for fileid in new_corpus.fileids(category):
+                                print("loading file " + fileid + " from corpus " + corpus + "on category " + category)
+                                target_code = new_corpus.raw(fileids=fileid)
+                                target_size = len(target_code)
+
+                                results = []
+                                for character in self.alphabet:
+                                    if character in target_code:
+                                        apparitions = target_code.count(character)
+                                        sum_characters = (apparitions * (apparitions - 1))
+                                        divide_characters = target_size * (target_size - 1)
+                                        result = sum_characters / divide_characters
+                                        results.append(result)
+
+                    self.coincidence_index[0] = sum(results)
     def set_target_coincidence_index_from_target(self, target_code):
         r"""
         Return frequency of caracters supplied in the target monoalphabetic caracter cipher code in argument.
@@ -139,6 +227,8 @@ class CoincidenceIndex:
         """
 
         difference = lambda input_list: abs(input_list - self.target_coincidence_index)
-        coincidence_index = min(self.coincidence_index.keys(), key=difference)
+        coincidence_index = min(self.coincidence_index.values(), key=difference)
 
-        return self.coincidence_index[coincidence_index]
+        key_size = [k for k, v in self.coincidence_index.items() if v == coincidence_index][0]
+
+        return key_size

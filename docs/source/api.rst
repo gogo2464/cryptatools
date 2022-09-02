@@ -14,13 +14,11 @@ API
 
     .. automethod:: set_coincidence_index_from_nltk_corpus(corpus_names)
 
-    .. automethod:: measure_coincidence_index_from_target(target_code, custom_alphabet=False)
-
 .. autoclass:: cryptanalib.cryptanalysis_algorithm.frequency::FrequencyAnalysis
 
     .. automethod:: set_letters_frequency_from_nltk_corpus(corpus_names)
 
-    .. automethod:: measure_frequency_from_target(target_code)
+    .. automethod:: measure_frequency_from_target(target_code, custom_alphabet=False)
 
 .. automodule:: cryptanalib.cryptanalysis_algorithm.brute_forcing
 

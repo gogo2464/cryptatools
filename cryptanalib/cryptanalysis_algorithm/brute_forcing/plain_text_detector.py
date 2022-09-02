@@ -1,7 +1,8 @@
 import nltk
-from nltk.corpus import words
-
+nltk.download('words')
 import string
+from pathlib import Path
+
 
 class PlainTextDetector:
     def __init__(self, language="english"):
@@ -16,6 +17,9 @@ class PlainTextDetector:
         :param similarity_level: float
         :return:
 
+        >>> import nltk
+        >>> nltk.download("words")
+        True
         >>> from cryptanalib.cryptanalysis_algorithm.brute_forcing import plain_text_detector
         >>> ptd = PlainTextDetector("any")
         >>> ptd.detect_plain_text(['H', 'e', 'l', 'l', 'o', '.', ' ', 'H', 'o', 'w', ' ', 'a', 'r', 'e', ' ', 'y', 'o', 'u', ' ', '?', ' ', 'I', ' ', 'a', 'm', ' ', 'f', 'i', 'n', 'e', ' ', 'a', 'n', 'd', ' ', 'y', 'o', 'u', ' ', '?'])
@@ -26,7 +30,10 @@ class PlainTextDetector:
 
         if self.language == "english" or self.language == "any":
             try:
-                common_words = [word for word in words_list if word.lower() in words.words() or word in string.punctuation]
+                nltk.download("words")
+                file = nltk.data.find(str(Path("corpora") / "words"))
+                new_corpus = nltk.corpus.PlaintextCorpusReader(file, r'en', encoding="latin-1")#.*\.txt
+                common_words = [word for word in words_list if word.lower() in new_corpus.words() or word in string.punctuation]
                 print("{0} level of similarity with the common words: {1}.".format(len(common_words) / len(words_list), common_words))
                 if len(common_words) / len(words_list) > similarity_level:
                     return True

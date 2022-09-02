@@ -9,19 +9,27 @@ jobs:
           - windows
     runs-on:
       - windows-latest
+
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
+
     - name: install dependencies
       run: |
         choco install pandoc
         choco install sphinx
         choco install make
         pip install --upgrade pip --user
-        pip install doctest --user
+        pip install pytest nltk --user
+
+    - name: install dependencies
+      run: |
+        python -m nltk.downloader words punkt
+
     - name: install cryptatools
       run: python setup.py install --user
+
     - name: run tests
       run: |
-        nosetests --with-doctest .\tests\doctests.py --verbose
+        python -m pytest --doctest-modules -v .\cryptanalib\
